@@ -323,58 +323,121 @@ function Contact() {
           <p className="text-lg text-gray-600">Let's discuss your special day</p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <form className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 gap-6 md:grid-cols-2"
-            >
-              <div>
-                <label className="block mb-2 text-sm font-medium text-gray-700">Name</label>
+        <div className="max-w-3xl p-8 mx-auto bg-white rounded-lg shadow-lg">
+          <form className="space-y-8">
+            {/* Name & Email */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <label className="block mb-2 text-sm font-medium text-gray-700">Full Name</label>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
                 />
-              </div>
-              <div>
-                <label className="block mb-2 text-sm font-medium text-gray-700">Email</label>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <label className="block mb-2 text-sm font-medium text-gray-700">Email Address</label>
                 <input
                   type="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
                 />
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
 
+            {/* Phone, Wedding Date & Event Venue */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <label className="block mb-2 text-sm font-medium text-gray-700">Phone Number</label>
+                <input
+                  type="tel"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <label className="block mb-2 text-sm font-medium text-gray-700">Wedding Date</label>
+                <input
+                  type="date"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <label className="block mb-2 text-sm font-medium text-gray-700">Event Venue</label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+                />
+              </motion.div>
+            </div>
+
+            {/* Photography Style */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <label className="block mb-2 text-sm font-medium text-gray-700">Wedding Date</label>
-              <input
-                type="date"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
-              />
+              <label className="block mb-2 text-sm font-medium text-gray-700">Preferred Photography Style</label>
+              <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                <option>Classic</option>
+                <option>Candid</option>
+                <option>Artistic</option>
+                <option>Documentary</option>
+              </select>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <label className="block mb-2 text-sm font-medium text-gray-700">Message</label>
-              <textarea
-                rows={4}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
-              ></textarea>
-            </motion.div>
-
+            {/* Inspiration Upload */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <label className="block mb-2 text-sm font-medium text-gray-700">Inspiration Images</label>
+              <input
+                type="file"
+                accept="image/*"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+              />
+            </motion.div>
+
+            {/* Additional Information */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+            >
+              <label className="block mb-2 text-sm font-medium text-gray-700">Additional Information</label>
+              <textarea
+                rows={4}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+              ></textarea>
+            </motion.div>
+
+            {/* Submit Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
               className="text-center"
             >
               <button
