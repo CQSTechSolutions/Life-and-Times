@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Camera, Heart, Menu, X, Award, Clock, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -321,7 +323,12 @@ function Contact() {
 
         <div className="max-w-3xl mx-auto">
           <form className="space-y-6">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-1 gap-6 md:grid-cols-2"
+            >
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-700">Name</label>
                 <input
@@ -336,29 +343,45 @@ function Contact() {
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
                 />
               </div>
-            </div>
-            <div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <label className="block mb-2 text-sm font-medium text-gray-700">Wedding Date</label>
               <input
                 type="date"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
               />
-            </div>
-            <div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
               <label className="block mb-2 text-sm font-medium text-gray-700">Message</label>
               <textarea
                 rows={4}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
               ></textarea>
-            </div>
-            <div className="text-center">
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="text-center"
+            >
               <button
                 type="submit"
                 className="px-8 py-3 text-lg text-white transition rounded-full bg-rose-500 hover:bg-rose-600"
               >
                 Send Message
               </button>
-            </div>
+            </motion.div>
           </form>
         </div>
       </div>
@@ -366,16 +389,28 @@ function Contact() {
   );
 }
 
+
+function Footer() {
+  return (
+    <footer className="py-4 text-white bg-gray-900">
+      <div className="px-4 mx-auto text-xs text-center max-w-7xl sm:px-6 lg:px-8">
+        &copy; {new Date().getFullYear()} Eternal Moments. All rights reserved.
+      </div>
+    </footer>
+  );
+}
+
 function App() {
   return (
     <Router>
-      <div className="min-h-screen">
+      <div className="flex flex-col min-h-screen">
         <Navbar />
         <Hero />
         <Experience />
         <Portfolio />
         <Services />
         <Contact />
+        <Footer className="mt-auto" />
       </div>
     </Router>
   );
