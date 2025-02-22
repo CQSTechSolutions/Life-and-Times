@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Camera, Heart, Menu, X, Award, Clock, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+
 
 
 
@@ -392,9 +394,69 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="py-4 text-white bg-gray-900">
-      <div className="px-4 mx-auto text-xs text-center max-w-7xl sm:px-6 lg:px-8">
-        &copy; {new Date().getFullYear()} Eternal Moments. All rights reserved.
+    <footer className="py-10 text-white bg-gray-800">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="md:flex md:items-center md:justify-between">
+          
+          {/* Left Column - Links */}
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-20">
+            {/* Services */}
+            <div>
+              <h3 className="mb-4 text-xl font-semibold">Services</h3>
+              <ul className="text-sm">
+                <li className="mb-2">
+                  <a href="#services" className="hover:text-rose-500">Wedding Photography</a>
+                </li>
+                <li className="mb-2">
+                  <a href="#services" className="hover:text-rose-500">Engagement Sessions</a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-rose-500">Digital Gallery</a>
+                </li>
+              </ul>
+            </div>
+            
+            {/* Experience */}
+            <div>
+              <h3 className="mb-4 text-xl font-semibold">Experience</h3>
+              <ul className="text-sm">
+                <li className="mb-2">
+                  <a href="#experience" className="hover:text-rose-500">Our Journey</a>
+                </li>
+                <li className="mb-2">
+                  <a href="#experience" className="hover:text-rose-500">Featured Weddings</a>
+                </li>
+                <li>
+                  <a href="#experience" className="hover:text-rose-500">Awards & Recognition</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Right Column - Socials */}
+          <div className="mt-10 md:mt-0 md:w-1/3">
+            <h3 className="mb-4 text-xl font-semibold">Connect With Us</h3>
+            <div className="flex justify-center sm:justify-start">
+              <a href="#" className="mx-3 text-rose-500 hover:text-rose-600">
+                <Facebook size={24} />
+              </a>
+              <a href="#" className="mx-3 text-rose-500 hover:text-rose-600">
+                <Instagram size={24} />
+              </a>
+              <a href="#" className="mx-3 text-rose-500 hover:text-rose-600">
+                <Twitter size={24} />
+              </a>
+              <a href="#" className="mx-3 text-rose-500 hover:text-rose-600">
+                <Youtube size={24} />
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        {/* Copyright */}
+        <div className="pt-4 mt-8 text-center border-t border-gray-700">
+          <p className="text-sm">© {new Date().getFullYear()} Eternal Moments. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   );
