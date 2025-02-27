@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const backgroundImages = [
   "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80"
+  "https://images.unsplash.com/photo-1554941829-202a0b2403b8?auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1449495169669-7b118f960251?auto=format&fit=crop&q=80"
 ];
 
 export default function Home() {
@@ -16,31 +16,34 @@ export default function Home() {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000);
+    }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      {/* Hero Section with Scrolling Background */}
-      <section className="relative h-screen">
-        {backgroundImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img
-              src={image}
-              alt={`Hero ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40"></div>
-          </div>
-        ))}
-        <div className="relative h-full flex items-center justify-center text-center text-white">
+      {/* Hero Section with Parallax Effect and Rotating Background */}
+      <div className="relative min-h-[200vh]">
+        <div className="fixed inset-0 z-0">
+          {backgroundImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                currentImageIndex === index ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`Hero ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40"></div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="relative z-10 h-screen flex items-center justify-center text-center text-white">
           <div className="max-w-3xl px-4">
             <h1 className="text-5xl md:text-6xl font-serif mb-6">Capturing Life's Beautiful Moments</h1>
             <p className="text-xl mb-8">Professional photography services for all your special occasions</p>
@@ -52,10 +55,10 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Featured Work */}
-      <section className="py-20 px-4">
+      <section className="relative z-10 bg-white py-20 px-4 mb-56">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-serif text-center mb-12">Featured Work</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -79,8 +82,14 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="relative z-10 bg-transparent text-white py-20 max-w-3xl px-4 text-center text-5xl font-serif m-auto">
+          Following your stories<br/>
+          Collecting your memories<br/>
+          Preserving your legacy
+      </div>
+
       {/* Services */}
-      <section className="bg-gray-50 py-20 px-4">
+      <section className="relative z-10 bg-gray-50 mt-28 py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-serif text-center mb-12">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
